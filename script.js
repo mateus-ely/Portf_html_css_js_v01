@@ -1,29 +1,13 @@
 const lista = document.getElementById("minha-lista");
-const botao = document.getElementById("btSubmit");
-const ultprod = document.getElementById("produto-destaque");
-const darkModeToggle = document.getElementById("btdark")
 
-botao.addEventListener("click", function (event) {
-  event.preventDefault();
+// Find the button by its ID
+const home_button = document.getElementById('myButton');
 
-  const nome =
-    document.getElementById("prodn").value +
-    " - " +
-    document.getElementById("prodc").value +
-    " - " +
-    document.getElementById("prodp").value;
+// Add the click functionality
+button.addEventListener('click', () => {
+    alert('Button was clicked!');
+});
 
-  novoItem = document.createElement("li");
-  novoItem.textContent = nome;
-  ultprod.textContent = nome;
 
-  lista.appendChild(novoItem);
-  console.log(nome);
-}
-);
 
-darkModeToggle.addEventListener("click", function (event) {
-  event.preventDefault();
-   document.body.classList.toggle("dark-mode");
-}
-);
+
