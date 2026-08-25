@@ -1,8 +1,9 @@
 
-* {                        
-    margin: 0;               
-    padding: 0;             
-    box-sizing: border-box;  
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
 }
 html {
   scroll-behavior: smooth;
@@ -12,40 +13,69 @@ html {
    BODY
    ========================================================= */
 body {
-  color: rgb(9, 9, 9);     
+  color: rgb(9, 9, 9);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;     
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   font-feature-settings: 'liga';  /* Liga as ligaturas da fonte — pares como "fi" e "fl" viram um desenho único, mais bonito. Detalhe fino de tipografia. */
-                                    
+
   -webkit-font-smoothing: antialiased; /* Suaviza as bordas das letras no Chrome/Safari do Mac.
                                           Deixa o texto mais fino e limpo. Só funciona em WebKit. */
-  background-color: #ffffff;           
-  background-image: url('assets/backgrounds/backgroundA1.jpg');                                   
-  background-size: cover;              /* A imagem cresce até cobrir a tela toda, sem distorcer.   Sobras são cortadas. Analogia: papel de parede esticado até não sobrar parede à mostra. */                                                      
+  background-color: #ffffff;
+  background-image: url('assets/backgrounds/backgroundA1.jpg');
+  background-size: cover;              /* A imagem cresce até cobrir a tela toda, sem distorcer.   Sobras são cortadas. Analogia: papel de parede esticado até não sobrar parede à mostra. */
   background-repeat: no-repeat;        /* Não repete a imagem em ladrilho quando ela é menor que a tela */
 
   background-position: center;         /* Centraliza a imagem. Importante junto com "cover": define QUAL parte é cortada — aqui, sobras nas laterais. */
-                                         
-  background-attachment: fixed;        /* A imagem fica parada enquanto o conteúdo rola por cima (efeito parallax simples). Não funciona no Safari do iPhone. */                                  
+
+  background-attachment: fixed;        /* A imagem fica parada enquanto o conteúdo rola por cima (efeito parallax simples). Não funciona no Safari do iPhone. */
 }
 
 /* =========================================================
    NAVBAR
+   Block: .navbar
+   Elements: __container, __brand, __logo-wrapper, __logo-img, __menu, __links
    ========================================================= */
 
-
-.header_links {
-    display: flex;           /* Coloca os filhos lado a lado, em linha */
+.navbar {
+  width: 100%;
+  background: #bea2a241;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 100px;
+  text-transform: uppercase;
+  font-size: 18px;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* deslocamento horizontal,deslocamento vertical, nivel desfoque ,	a cor, com o último número sendo a opacidade */
+  text-decoration: none;
 }
-.nav_links a {
+
+.navbar__container {
+  width: 100%;
+  padding: 1rem 3rem;
+  display: flex;             /* Ativa o Flexbox: filhos ficam em linha */
+  align-items: center;       /* Alinha os filhos no centro do eixo VERTICAL */
+  justify-content: space-between; /* Empurra o primeiro filho pra esquerda e o último pra direita, com todo o espaço sobrando no meio. É o que separa logo e menu. */
+}
+
+.navbar__menu {
+  display: flex;
+  align-items: center;       /* Centralizados verticalmente entre si */
+}
+
+.navbar__links {
+  display: flex;             /* Os itens da lista ficam lado a lado em vez de empilhados */
+  gap: 2rem;
+  list-style: none;          /* Remove as bolinhas (•) da lista <ul> */
+}
+
+.navbar__links a {
   text-decoration: none;
   color: black;
   font-weight: 600;
   transition: box-shadow 0.3s, transform 0.3s;
-  
 }
-.nav_links a:hover {
+
+.navbar__links a:hover {
   text-decoration: underline;
   color:#7b4ae2;
   font-weight: 600;
@@ -53,238 +83,189 @@ body {
   transform: translateY(-3px);
 }
 
-
-.navbar {
-  width: 100%;               
-  background: #bea2a241;                                                          
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 100px;                        
-  text-transform: uppercase; 
-  font-size: 18px;    
-  
-  
-}
-
-.navbar_content {
-  width: 100%;              
-  padding: 1rem 3rem;       
-  display: flex;             /* Ativa o Flexbox: filhos ficam em linha */
-  align-items: center;       /* Alinha os filhos no centro do eixo VERTICAL */
-  justify-content: space-between; /* Empurra o primeiro filho pra esquerda e o último pra direita, com todo o espaço sobrando no meio. É o que separa logo e menu. */                   
-  text-transform: uppercase;
-  font-size: 18px;
-  position: fixed;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* deslocamento horizontal,deslocamento vertical, nivel desfoque ,	a cor, com o último número sendo a opacidade */
-   text-decoration: none; 
-}
-
-.right_navcontent {
-  display: flex;            
-  align-items: center;       /* Centralizados verticalmente entre si */
-}
-
-.nav_links {
-  display: flex;             /* Os itens da lista ficam lado a lado em vez de empilhados */
-  gap: 2rem;                     
-  list-style: none;          /* Remove as bolinhas (•) da lista <ul> */
-}
-
-.left_navcontent {
+.navbar__brand {
   display: flex;
   align-items: center;
   cursor: pointer;           /* Muda o mouse para "mãozinha", indicando que é clicável */
   column-gap: 30px;          /* Espaço só entre COLUNAS (horizontal). Vence o gap: 1rem acima. */
 }
 
-.header_links {
-  text-decoration: none;     /* Tira o sublinhado padrão dos links */
-  color: black;           
-  font-weight: 600;         
-}
-
-.header__logo-img {
-  width: 100%;              
-  height: 100%;             
-  object-fit: cover;         /* A imagem preenche o espaço sem distorcer, cortando o excesso. É o "background-size: cover" da tag <img>. */
-                         
-}
-
-.logo_img {
+.navbar__logo-img {
   width: 40px;
-  height: 40px;              
-  background: #eee;          
+  height: 40px;
+  background: #eee;
   border-radius: 50%;        /* 50% arredonda até virar um círculo (só funciona bem em quadrados) */
   overflow: hidden;          /* Corta o que passar da borda — é o que faz a foto virar redonda junto com o border-radius do pai. */
+  object-fit: cover;         /* A imagem preenche o espaço sem distorcer, cortando o excesso. */
 }
-                              
+
 
 /* =========================================================
    HOME
+   Block: .home
+   Elements: __container, __content, __title, __media, __portrait, __portrait-frame, __portrait-img
    ========================================================= */
 
-.home-section {
+.home {
    font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
   Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 50px;        
-  padding-right: 50px;   
+  padding-left: 50px;
+  padding-right: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
-  height: 800px;    
+  
+  height: 800px;
 }
 
-.home-title {
+.home__title {
    font-family: 'Tan-Pearl', serif;
-  font-size: 2rem;          
-  line-height: 1.1;          /* Altura da linha = 1,1x o tamanho da fonte. Em títulos usa-se valor baixo para as linhas ficarem juntinhas. */                      
-  text-transform: uppercase; 
+  font-size: 2rem;
+  line-height: 1.1;          /* Altura da linha = 1,1x o tamanho da fonte. Em títulos usa-se valor baixo para as linhas ficarem juntinhas. */
+  text-transform: uppercase;
 }
 
-.home-container {
+.home__container {
   display: grid;             /* Ativa o Grid: layout em linhas E colunas (o flex é só um eixo) */
-  grid-template-columns: 1fr 1fr;  /* Duas colunas de tamanho igual. "fr" = fração do espaço livre;  1fr 1fr divide meio a meio, 2fr 1fr daria 2/3 e 1/3. */                             
-  gap: 60px;                
-  padding: 80px 120px;      
+  grid-template-columns: 1fr 1fr;  /* Duas colunas de tamanho igual. "fr" = fração do espaço livre;  1fr 1fr divide meio a meio, 2fr 1fr daria 2/3 e 1/3. */
+  gap: 60px;
+  padding: 80px 120px;
 }
 
-.home-left h2,
-.home-right h2 {             
-  margin-bottom: 24px;       /* Espaço externo abaixo do título, afastando do parágrafo */
-}
-
-.home-left p {
-  font-weight: 400;         
+.home__content p {
+  font-weight: 400;
   line-height: 1.8;          /* Linhas bem espaçadas — em textos corridos isso ajuda muito a leitura */
-  color: #444;             
+  color: #444;
 }
 
-.home-right {
-  padding-left: 200px;       /* Empurra o conteúdo da coluna direita bem para o lado.Valor fixo alto — costuma quebrar em telas médias. */                  
+.home__media {
+  padding-left: 200px;       /* Empurra o conteúdo da coluna direita bem para o lado.Valor fixo alto — costuma quebrar em telas médias. */
 }
 
-.home__logo-img-cont {
+.home__portrait-frame {
   width: 400px;
-  height: 400px;             
-  background: #eee;        
+  height: 400px;
+  background: #eee;
   border-radius: 50%;        /* Vira círculo */
   overflow: hidden;          /* Recorta a foto no formato do círculo */
 }
 
-.home__logo-img {
+.home__portrait-img {
   width: 100%;
   height: 100%;
   object-fit: cover;         /* Preenche o círculo sem esticar o rosto */
 }
 
 
-  .home-right {
+  .home__media {
     padding-left: 0;             /* Remove aquele empurrão de 200px, que no celular quebraria tudo */
   }
 
-  .home__logo-img-cont {
+  .home__portrait-frame {
     width: 250px;
-    height: 250px;             
-    margin: 0 auto;                              
+    height: 250px;
+    margin: 0 auto;
 }
 
 
 
 /* =========================================================
    ABOUT
+   Block: .about
+   Elements: __body, __info, __skills
+   Shared components: .section-intro, .section-divider, .btn, .skills-list, .skill-tag
    ========================================================= */
-   
-.about-section {
+
+.about {
   font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  /* Mesma observação sobre o "gt" */
-    padding-left: 50px;        
-    padding-right: 50px;   
+    padding-left: 50px;
+    padding-right: 50px;
     padding-top: 100px;
-   padding-bottom: 50px;
-   height: 100%;    
+    padding-bottom: 50px;
+    height: 100%;
 }
 
-.about-top,
-.projects-top,
-.contact-top {
+/* Cabeçalho de introdução reutilizado por about, projects (e futuramente contact) */
+.section-intro {
   text-align: center;        /* Centraliza o texto dentro do bloco */
   margin: 0 auto 80px;       /* Atalho com 3 valores: 0 em cima, auto nas laterais (centraliza a caixa) e 80px embaixo */
 }
 
-.about-top h1,
-.projects-top h1,
-.contact-top h1 {
+.section-intro h1 {
   font-size: 36px;
   letter-spacing: 4px;       /* Espaço extra ENTRE AS LETRAS. Dá ar mais elegante em títulos curtos. */
 }
 
-.underline {
-  display: block;            /* Vira bloco para poder ter largura e altura próprias(elementos inline como <span> ignoram width/height) */                  
+.section-divider {
+  display: block;            /* Vira bloco para poder ter largura e altura próprias(elementos inline como <span> ignoram width/height) */
   width: 40px;
-  height: 4px;               
-  background: #7b4ae2;       
+  height: 4px;
+  background: #7b4ae2;
   margin: 12px auto 20px;    /* 12px acima, auto nas laterais (centraliza), 20px abaixo */
   border-radius: 4px;        /* Pontas arredondadas */
 }
 
-.about-top p,
-.contact-top p {
-  color: #555;               
+.section-intro p {
+  color: #555;
   line-height: 1.6;          /* Espaçamento confortável entre linhas */
 }
 
-.about-container {
+.about__body {
   display: grid;
   grid-template-columns: 1fr 1fr;  /* Duas colunas iguais */
   gap: 60px;
-  padding: 80px 120px;                      
+  padding: 80px 120px;
 }
 
-.about-left h2,
-.about-right h2 {
+.about__body h2 {
   margin-bottom: 24px;
 }
 
-.about-left p {
+.about__info p {
   font-weight: 400;
   line-height: 1.8;
   color: #444;
 }
 
-.about-left a {
-  color: #7b4ae2;            
-  text-decoration: none;     
-  font-weight: 600;       
+.about__info a {
+  color: #7b4ae2;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-.contact-btn {
-  margin-top: 24px;          
-  padding: 14px 32px;                                  
-  border: 2px solid transparent;  /* Borda de 2px INVISÍVEL. Truque importante: ela já ocupa o espaço  agora, então quando o hover pinta a borda o botão não "pula". */                             
-  background: #bea2a241;     
+/* Botão genérico reutilizável (ex.: .btn.btn--primary) */
+.btn {
+  margin-top: 24px;
+  padding: 14px 32px;
+  border: 2px solid transparent;  /* Borda de 2px INVISÍVEL. Truque importante: ela já ocupa o espaço  agora, então quando o hover pinta a borda o botão não "pula". */
   border-radius: 6px;        /* Cantos levemente arredondados */
   font-weight: bold;
   cursor: pointer;           /* Mãozinha do mouse */
-  transition: 0.3s ease;     /* Anima as mudanças em 0,3s. "ease" = começa e termina devagar,  acelerando no meio (parece mais natural que velocidade constante). */                    
+  transition: 0.3s ease;     /* Anima as mudanças em 0,3s. "ease" = começa e termina devagar,  acelerando no meio (parece mais natural que velocidade constante). */
   text-decoration: none;     /* Caso seja um <a> disfarçado de botão, tira o sublinhado */
   color: inherit;            /* Herda a cor do texto do elemento pai, em vez de usar o azul de link */
   display: inline-block;     /* Fica na linha como um texto, MAS aceita width/height/padding  vertical como um bloco. É o meio-termo ideal para botões. */
-                              
 }
 
-.contact-btn:hover {        
+.btn--primary {
+  background: #bea2a241;
+}
+
+.btn:hover {
   border-color: black;       /* A borda transparente ganha cor. É essa mudança que o transition acima anima suavemente. */
 }
 
-.skills {
+.skills-list {
   display: flex;
-  flex-wrap: wrap;           /* Permite que os itens pulem para a linha de baixo quando não cabem. Sem isso, o flex espremeria tudo numa linha só. */         
-  gap: 12px;                 
+  flex-wrap: wrap;           /* Permite que os itens pulem para a linha de baixo quando não cabem. Sem isso, o flex espremeria tudo numa linha só. */
+  gap: 12px;
 }
 
-.skill {
+.skill-tag {
   background: #bea2a241;
-  padding: 10px 16px;        
+  padding: 10px 16px;
   border-radius: 6px;
-  font-size: 14px;          
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -292,39 +273,59 @@ body {
 
 
 /* =========================================================
-   projects
+   PROJECTS
+   Block: .projects
+   Elements: __grid
+   Component: .project-card (__image-wrapper, __image, __description, __tech)
    ========================================================= */
-.projects-section {
+.projects {
   font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding-left: 50px;        
-    padding-right: 50px;   
-     padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100xp;
     padding-bottom: 50px;
-    height: 800px;    
+    height: auto;
+
 }
 
-
-.projects-container{
-  background-color:rgba(0, 0, 0, 0.1);
+.projects__grid {
+  display: flex;
   width: 100%;
-  height: 800px;
-  display: flex;   
-  gap: 60px;
- justify-content: center;
+  height: 100%;
 }
 
-.project-cell{
+.project-card {
   background-color: white;
   width: 400px;
   height: 500px;
+  padding:10px;
+  justify-content: space-between;
+
 }
 
-.project-image{
-  background-color: #7b4ae2;
-width: 200px;
-  height: 200px;
+.project-card__image-wrapper {
+  width: 380px;
+  height: 250px;
 }
 
+.project-card__image {
+  width: 100%;
+  height: 100%;
+}
 
+.project-card__description {
+  width: 100%;
+  height: 80px;
+}
 
+.project-card__tech{
+  width: 100%;
+  height: 130px;
+}
+
+.project-card__access{
+  width: 100%;
+  height: 100px;
+
+}

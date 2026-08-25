@@ -1,187 +1,197 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Portifolio</title>
-    <style>
-    </style>
-     <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
 
-    <!-- ===== Nav bar ===== -->
-<header class="header_content">
-  <div class="navbar_content">
-    <div class="left_navcontent">
-          <div class="header_logo-img"> 
-             <img
-              src="assets/images/img01.png"
-              class="logo_img"
-              alt="Mateus Ely Chies"
-            />
-          </div>
-    </div>
-    <div class="right_navcontent">
-     <ul class="nav_links">
-      
+<head>
+  <meta charset="UTF-8" />
+  <title>Portifolio</title>
+  <style></style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ===== Nav bar ===== -->
+  <header class="navbar">
+    <div class="navbar__container">
+      <div class="navbar__brand">
+        <div class="navbar__logo-wrapper">
+          <img src="assets/images/img01.png" class="navbar__logo-img" alt="Mateus Ely Chies" />
+        </div>
+      </div>
+      <div class="navbar__menu">
+        <ul class="navbar__links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="contact.html">Contact</a></li>
-      </ul>
-  </div>
+        </ul>
+      </div>
+    </div>
+  </header>
 
- </div>
-</header>
+  <!-- ===== HOME ===== -->
 
-      <!-- ===== HOME ===== -->
-  
-      <section id="home" class="home-section">
-        <div class="home-container"><!--  -->
-          <div class="home-left">
-            <div class="home-title">
-              <h1>Hello <br />I'm Mateus Ely Chies</h1>
-            </div>
-            <p>
-              A Computer Science student and Junior Web Developer in training. I
-              specialize in building interfaces with HTML, CSS, and JavaScript,
-              while expanding my expertise in React.
-            </p>
-          </div>
-          <div class="home-right">
-            <div class="home__logo-container">
-              <div class="home__logo-img-cont">
-                <img
-                  src="assets/images/img01.png"
-                  class="home__logo-img"
-                  alt="Mateus Ely Chies"
-                />
-              </div>
-            </div>
+  <section id="home" class="home">
+    <div class="home__container">
+      <!--  -->
+      <div class="home__content">
+        <div class="home__title">
+          <h1>Hello <br />I'm Mateus Ely Chies</h1>
+        </div>
+        <p>
+          A Computer Science student and Junior Web Developer in training. I
+          specialize in building interfaces with HTML, CSS, and JavaScript,
+          while expanding my expertise in React.
+        </p>
+      </div>
+      <div class="home__media">
+        <div class="home__portrait">
+          <div class="home__portrait-frame">
+            <img src="assets/images/img01.png" class="home__portrait-img" alt="Mateus Ely Chies" />
           </div>
         </div>
-      </section>
-   
-    
-    <!-- ===== ABOUT ===== -->
-     
-    <section id="about" class="about-section">
+      </div>
+    </div>
+  </section>
 
-        <div class="about-top">
-          <h1>ABOUT ME</h1>
-          <span class="underline"></span>
+  <!-- ===== ABOUT ===== -->
+
+  <section id="about" class="about">
+    <div class="section-intro">
+      <h1>ABOUT ME</h1>
+      <span class="section-divider"></span>
+      <p>
+        Here you will find more information about me, what I do, and my
+        current skills, mainly related to programming and technology.
+      </p>
+    </div>
+
+    <div class="about__body">
+      <div class="about__info">
+        <h2>Get to know me!</h2>
+
+        <p>
+          I'm a Computer Science student and a developer in training, focused
+          on Web Development and on building modern and functional
+          applications.
+        </p>
+
+        <p>
+          I'm currently studying Computer Science, with expected graduation in
+          January 2027, and I have academic experience from both PUCRS and
+          Universidade La Salle Canoas.
+        </p>
+
+        <p>
+          I worked as an IT Intern at Transis Software, where I developed
+          desktop applications using .NET technologies. My activities included
+          creating user interfaces, assisting in application development, and
+          implementing business logic using C# and frontend with VB.NET and
+          C#.
+        </p>
+
+        <p>
+          I'm constantly improving my skills through online courses and
+          practical projects, especially in HTML, CSS, JavaScript, and React.
+        </p>
+
+        <p>
+          I'm open to internship opportunities in IT and Web Development,
+          where I can contribute, learn, and grow professionally. If you have
+          an opportunity that matches my profile, feel free to contact me.
+        </p>
+
+        <a href="#contact" class="btn btn--primary">CONTACT</a>
+      </div>
+      <div class="about__skills">
+        <h2>My Skills</h2>
+
+        <div class="skills-list">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">.NET</span>
+          <span class="skill-tag">C#</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">VB.NET</span>
+          <span class="skill-tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+
+  <section id="projects" class="projects">
+    <div class="section-intro">
+      <h1>PROJECTS</h1>
+      <span class="section-divider"></span>
+    </div>
+
+    <div class="projects__grid">
+      <div class="project-card">
+        <div class="project-card__image-wrapper">
+          <img src="assets\trabs\ccb.jpg" class="project-card__image" />
+        </div>
+
+        <div class="project-card__description">
           <p>
-            Here you will find more information about me, what I do, and my
-            current skills, mainly related to programming and technology.
+            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
+            modern and functional applicasdfasdfations.
           </p>
         </div>
-        
-        <div class="about-container">
-          <div class="about-left">
-            <h2>Get to know me!</h2>
 
-            <p>
-              I'm a Computer Science student and a developer in training,
-              focused on Web Development and on building modern and functional
-              applications.
-            </p>
+        <div class="project-card__tech"></div>
 
-            <p>
-              I'm currently studying Computer Science, with expected graduation
-              in January 2027, and I have academic experience from both PUCRS
-              and Universidade La Salle Canoas.
-            </p>
-
-            <p>
-              I worked as an IT Intern at Transis Software, where I developed
-              desktop applications using .NET technologies. My activities
-              included creating user interfaces, assisting in application
-              development, and implementing business logic using C# and frontend
-              with VB.NET and C#.
-            </p>
-
-            <p>
-              I'm constantly improving my skills through online courses and
-              practical projects, especially in HTML, CSS, JavaScript, and
-              React.
-            </p>
-
-            <p>
-              I'm open to internship opportunities in IT and Web Development,
-              where I can contribute, learn, and grow professionally. If you
-              have an opportunity that matches my profile, feel free to contact
-              me.
-            </p>
-
-            <a href="#contact" class="contact-btn">CONTACT</a>
-          </div>
-          <div class="about-right">
-            <h2>My Skills</h2>
-
-            <div class="skills">
-              <span class="skill">HTML</span>
-              <span class="skill">CSS</span>
-              <span class="skill">JavaScript</span>
-              <span class="skill">React</span>
-              <span class="skill">.NET</span>
-              <span class="skill">C#</span>
-              <span class="skill">Java</span>
-              <span class="skill">VB.NET</span>
-              <span class="skill">Git</span>
-            </div>
-          </div>
+        <div class="project-card__access">
+          <button>Acessar</button>
+          <button>repositório</button>
         </div>
-      </section>
-  
-      
-  
- <!-- ===== PROJECTS ===== -->
-     
-    <section id="projects" class="projects-section">
-      
-      <div class="projects-top">
-        <h1>PROJECTS</h1>
-        <span class="underline"></span>
       </div>
 
+      <div class="project-card">
+        <div class="project-card__image-wrapper">
+          <img src="assets\trabs\ccb1.jpg" class="project-card__image" />
+        </div>
 
+        <div class="project-card__description">
+          <p>
+            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
+            modern and functional applicasdfasdfations.
+          </p>
+        </div>
 
-    <div class="projects-container">
+        <div class="project-card__tech"></div>
 
-     <div class="project-cell">
-       <div class="project-image">
+        <div class="project-card__access">
+          <button>Acessar</button>
+          <button>repositório</button>
+        </div>
+      </div>
 
-       </div>
+      <div class="project-card">
+        <div class="project-card__image-wrapper">
+          <img src="assets\trabs\ccb.jpg" class="project-card__image" />
+        </div>
 
-        <div class="project-text">
+        <div class="project-card__description">
+          <p>
+            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
+            modern and functional applicasdfasdfations.
+          </p>
+        </div>
 
-       </div>
-        <div class="project-tec">
+        <div class="project-card__tech"></div>
 
-       </div>
+        <div class="project-card__access">
+          <button>Acessar</button>
+          <button>repositório</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-     </div>
+  <script src="script.js"></script>
+</body>
 
-
-
-
-     <div class="project-cell">
-
-     </div>
-
-       <div class="project-cell">
-
-     </div>
-
-    </div>   
-       
-
-
-
-
-
-
-
-    <script src="script.js"></script>
-  </body>
 </html>
