@@ -3,24 +3,21 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
 }
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+  font-size: 16px; 
+  font-weight: 600;
 }
-
 /* =========================================================
    BODY
    ========================================================= */
 body {
-  color: rgb(9, 9, 9);
+  color: rgb(0, 0, 0);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
-  font-feature-settings: 'liga';  /* Liga as ligaturas da fonte — pares como "fi" e "fl" viram um desenho único, mais bonito. Detalhe fino de tipografia. */
-
-  -webkit-font-smoothing: antialiased; /* Suaviza as bordas das letras no Chrome/Safari do Mac.
-                                          Deixa o texto mais fino e limpo. Só funciona em WebKit. */
   background-color: #ffffff;
   background-image: url('assets/backgrounds/backgroundA1.jpg');
   background-size: cover;              /* A imagem cresce até cobrir a tela toda, sem distorcer.   Sobras são cortadas. Analogia: papel de parede esticado até não sobrar parede à mostra. */
@@ -29,6 +26,7 @@ body {
   background-position: center;         /* Centraliza a imagem. Importante junto com "cover": define QUAL parte é cortada — aqui, sobras nas laterais. */
 
   background-attachment: fixed;        /* A imagem fica parada enquanto o conteúdo rola por cima (efeito parallax simples). Não funciona no Safari do iPhone. */
+  padding-top: 72px;
 }
 
 /* =========================================================
@@ -39,14 +37,16 @@ body {
 
 .navbar {
   width: 100%;
-  background: #bea2a241;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 100px;
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 20px;
   position: fixed;
   backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* deslocamento horizontal,deslocamento vertical, nivel desfoque ,	a cor, com o último número sendo a opacidade */
   text-decoration: none;
+  top: 0;
+  left: 0;
+  z-index: 100;
 }
 
 .navbar__container {
@@ -71,14 +71,14 @@ body {
 .navbar__links a {
   text-decoration: none;
   color: black;
-  font-weight: 600;
   transition: box-shadow 0.3s, transform 0.3s;
+  border: 3px solid transparent;  /* Borda de 2px INVISÍVEL. Truque importante: ela já ocupa o espaço  agora, então quando o hover pinta a borda o botão não "pula". */
+  border-radius: 5px; 
+  padding: 1px 3px;
 }
 
 .navbar__links a:hover {
-  text-decoration: underline;
-  color:#7b4ae2;
-  font-weight: 600;
+  border-color: black;  
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transform: translateY(-3px);
 }
@@ -88,6 +88,7 @@ body {
   align-items: center;
   cursor: pointer;           /* Muda o mouse para "mãozinha", indicando que é clicável */
   column-gap: 30px;          /* Espaço só entre COLUNAS (horizontal). Vence o gap: 1rem acima. */
+  font-weight: bold;
 }
 
 .navbar__logo-img {
@@ -99,7 +100,14 @@ body {
   object-fit: cover;         /* A imagem preenche o espaço sem distorcer, cortando o excesso. */
 }
 
+.anim-flip-x {
+  display: inline-block;
+  transition: transform 0.6s ease;
+}
 
+.navbar__brand:hover .anim-flip-x {
+  transform: perspective(400px) rotateX(360deg);
+}
 /* =========================================================
    HOME
    Block: .home
@@ -108,17 +116,16 @@ body {
 
 .home {
    font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  
-  height: 800px;
+   Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   padding-left: 50px;
+   padding-right: 50px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   height: 850px;
 }
 
 .home__title {
-   font-family: 'Tan-Pearl', serif;
+  font-family: 'Tan-Pearl', serif;
   font-size: 2rem;
   line-height: 1.1;          /* Altura da linha = 1,1x o tamanho da fonte. Em títulos usa-se valor baixo para as linhas ficarem juntinhas. */
   text-transform: uppercase;
@@ -132,13 +139,7 @@ body {
 }
 
 .home__content p {
-  font-weight: 400;
   line-height: 1.8;          /* Linhas bem espaçadas — em textos corridos isso ajuda muito a leitura */
-  color: #444;
-}
-
-.home__media {
-  padding-left: 200px;       /* Empurra o conteúdo da coluna direita bem para o lado.Valor fixo alto — costuma quebrar em telas médias. */
 }
 
 .home__portrait-frame {
@@ -147,6 +148,7 @@ body {
   background: #eee;
   border-radius: 50%;        /* Vira círculo */
   overflow: hidden;          /* Recorta a foto no formato do círculo */
+  margin: 0 auto;
 }
 
 .home__portrait-img {
@@ -155,17 +157,9 @@ body {
   object-fit: cover;         /* Preenche o círculo sem esticar o rosto */
 }
 
-
-  .home__media {
-    padding-left: 0;             /* Remove aquele empurrão de 200px, que no celular quebraria tudo */
-  }
-
-  .home__portrait-frame {
-    width: 250px;
-    height: 250px;
-    margin: 0 auto;
-}
-
+ .home__cv:hover {      /* animação cv */
+  transform: perspective(400px) rotateX(360deg);
+ }
 
 
 /* =========================================================
@@ -180,9 +174,9 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  /* Mesma observação sobre o "gt" */
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 100px;
+    padding-top: 100xp;
     padding-bottom: 50px;
-    height: 100%;
+    height: 850px;
 }
 
 /* Cabeçalho de introdução reutilizado por about, projects (e futuramente contact) */
@@ -200,13 +194,12 @@ body {
   display: block;            /* Vira bloco para poder ter largura e altura próprias(elementos inline como <span> ignoram width/height) */
   width: 40px;
   height: 4px;
-  background: #7b4ae2;
+  background: #a407b341;
   margin: 12px auto 20px;    /* 12px acima, auto nas laterais (centraliza), 20px abaixo */
   border-radius: 4px;        /* Pontas arredondadas */
 }
 
 .section-intro p {
-  color: #555;
   line-height: 1.6;          /* Espaçamento confortável entre linhas */
 }
 
@@ -222,15 +215,11 @@ body {
 }
 
 .about__info p {
-  font-weight: 400;
   line-height: 1.8;
-  color: #444;
 }
 
 .about__info a {
-  color: #7b4ae2;
   text-decoration: none;
-  font-weight: 600;
 }
 
 /* Botão genérico reutilizável (ex.: .btn.btn--primary) */
@@ -248,7 +237,7 @@ body {
 }
 
 .btn--primary {
-  background: #bea2a241;
+  background: #a407b341;
 }
 
 .btn:hover {
@@ -259,6 +248,7 @@ body {
   display: flex;
   flex-wrap: wrap;           /* Permite que os itens pulem para a linha de baixo quando não cabem. Sem isso, o flex espremeria tudo numa linha só. */
   gap: 12px;
+    font-weight: 700;
 }
 
 .skill-tag {
@@ -266,7 +256,6 @@ body {
   padding: 10px 16px;
   border-radius: 6px;
   font-size: 14px;
-  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -279,20 +268,23 @@ body {
    Component: .project-card (__image-wrapper, __image, __description, __tech)
    ========================================================= */
 .projects {
-  font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     padding-left: 50px;
     padding-right: 50px;
     padding-top: 100xp;
     padding-bottom: 50px;
-    height: auto;
+    height: 850px;
 
 }
 
 .projects__grid {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
   width: 100%;
-  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .project-card {
@@ -328,4 +320,56 @@ body {
   width: 100%;
   height: 100px;
 
+}
+
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
+.contact{
+  font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100xp;
+    padding-bottom: 50px;
+    height: 850px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 200px;
+}
+
+.contact-container a {
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.contact-container a:hover {
+  transform: translateY(-10px);
+}
+
+.contact-container img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 20px;
+  }
+
+  .contact-top h1 {
+    font-size: 28px;
+  }
 }

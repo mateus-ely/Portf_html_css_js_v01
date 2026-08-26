@@ -6,6 +6,10 @@
   <title>Portifolio</title>
   <style></style>
   <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 
 <body>
@@ -16,13 +20,14 @@
         <div class="navbar__logo-wrapper">
           <img src="assets/images/img01.png" class="navbar__logo-img" alt="Mateus Ely Chies" />
         </div>
+       <span class="anim-flip-x">Mateus Ely Chies</span>
       </div>
       <div class="navbar__menu">
         <ul class="navbar__links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -38,17 +43,16 @@
           <h1>Hello <br />I'm Mateus Ely Chies</h1>
         </div>
         <p>
-          A Computer Science student and Junior Web Developer in training. I
+          Computer Science student and Junior Web Developer in training. I
           specialize in building interfaces with HTML, CSS, and JavaScript,
           while expanding my expertise in React.
         </p>
+        <a href="assets/docs/curriculo.pdf" download class="btn btn--primary home__cv anim-flip-x">Download CV</a>
       </div>
-      <div class="home__media">
         <div class="home__portrait">
           <div class="home__portrait-frame">
             <img src="assets/images/img01.png" class="home__portrait-img" alt="Mateus Ely Chies" />
-          </div>
-        </div>
+          </div>    
       </div>
     </div>
   </section>
@@ -100,7 +104,7 @@
           an opportunity that matches my profile, feel free to contact me.
         </p>
 
-        <a href="#contact" class="btn btn--primary">CONTACT</a>
+        <a href="#contact" download class="btn btn--primary home__cv anim-flip-x">CONTACT</a>
       </div>
       <div class="about__skills">
         <h2>My Skills</h2>
@@ -126,6 +130,10 @@
     <div class="section-intro">
       <h1>PROJECTS</h1>
       <span class="section-divider"></span>
+       <p>
+      Here are some of the projects I've built while learning and practicing
+      web development. Each one explores different technologies and challenges.
+      </p>
     </div>
 
     <div class="projects__grid">
@@ -136,8 +144,8 @@
 
         <div class="project-card__description">
           <p>
-            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
-            modern and functional applicasdfasdfations.
+           Landing page responsiva para divulgação de cursos de português,
+            construída com HTML e CSS.
           </p>
         </div>
 
@@ -156,8 +164,7 @@
 
         <div class="project-card__description">
           <p>
-            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
-            modern and functional applicasdfasdfations.
+            Descrição curta do que o projeto faz e qual problema ele resolve.
           </p>
         </div>
 
@@ -176,8 +183,7 @@
 
         <div class="project-card__description">
           <p>
-            I'm aasdsasdfasdfand a developer in training, focused on Weasdfing
-            modern and functional applicasdfasdfations.
+              Descrição curta do que o projeto faz e qual problema ele resolve.
           </p>
         </div>
 
@@ -190,6 +196,48 @@
       </div>
     </div>
   </section>
+
+
+
+  <!-- ===== CONTACT ===== -->
+
+  <section id="contact" class="contact">
+    <div class="section-intro">
+      <h1>CONTACT</h1>
+      <span class="section-divider"></span>
+       <p>
+          Here you will find more information about me, what I do, and my current skills, mainly
+          related to programming and technology.
+      </p>
+    </div>
+
+        <div class="contact-container">
+        <a href="https://github.com/mateus-ely" target="_blank" rel="noreferrer">
+          <img src="assets/icons/github.png" class="contact-right" alt="GitHub" />
+        </a>
+
+        <a
+          href="https://www.linkedin.com/in/mateus-ely-chies-4a69a31b2"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img src="assets/icons/linkedin-img.png" class="contact-left" alt="LinkedIn" />
+        </a>
+      </div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <script src="script.js"></script>
 </body>
