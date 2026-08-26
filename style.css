@@ -19,12 +19,10 @@ body {
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   background-color: #ffffff;
-  background-image: url('assets/backgrounds/backgroundA1.jpg');
+  background-image: url('assets/backgrounds/Wallpaper1.jpg');
   background-size: cover;              /* A imagem cresce até cobrir a tela toda, sem distorcer.   Sobras são cortadas. Analogia: papel de parede esticado até não sobrar parede à mostra. */
   background-repeat: no-repeat;        /* Não repete a imagem em ladrilho quando ela é menor que a tela */
-
   background-position: center;         /* Centraliza a imagem. Importante junto com "cover": define QUAL parte é cortada — aqui, sobras nas laterais. */
-
   background-attachment: fixed;        /* A imagem fica parada enquanto o conteúdo rola por cima (efeito parallax simples). Não funciona no Safari do iPhone. */
   padding-top: 72px;
 }
@@ -171,12 +169,12 @@ body {
 
 .about {
   font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  /* Mesma observação sobre o "gt" */
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 100xp;
-    padding-bottom: 50px;
-    height: 850px;
+  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  /* Mesma observação sobre o "gt" */
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 100xp;
+  padding-bottom: 50px;
+  height: 850px;
 }
 
 /* Cabeçalho de introdução reutilizado por about, projects (e futuramente contact) */
@@ -267,6 +265,9 @@ body {
    Elements: __grid
    Component: .project-card (__image-wrapper, __image, __description, __tech)
    ========================================================= */
+
+
+
 .projects {
     font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -362,14 +363,3 @@ body {
   object-fit: contain;
 }
 
-@media (max-width: 900px) {
-  .contact-container {
-    flex-direction: column;
-    gap: 2rem;
-    padding: 20px;
-  }
-
-  .contact-top h1 {
-    font-size: 28px;
-  }
-}
