@@ -7,7 +7,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
-  font-size: 16px; 
+  font-size: 18px; 
   font-weight: 600;
 }
 /* =========================================================
@@ -119,7 +119,7 @@ body {
    padding-right: 50px;
    padding-top: 50px;
    padding-bottom: 50px;
-   height: 850px;
+   min-height: 850px;
 }
 
 .home__title {
@@ -127,6 +127,7 @@ body {
   font-size: 2rem;
   line-height: 1.1;          /* Altura da linha = 1,1x o tamanho da fonte. Em títulos usa-se valor baixo para as linhas ficarem juntinhas. */
   text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .home__container {
@@ -160,6 +161,7 @@ body {
  }
 
 
+
 /* =========================================================
    ABOUT
    Block: .about
@@ -172,15 +174,14 @@ body {
   Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;  /* Mesma observação sobre o "gt" */
   padding-left: 50px;
   padding-right: 50px;
-  padding-top: 100xp;
+  padding-top: 100px;
   padding-bottom: 50px;
-  height: 850px;
+  min-height: 850px;
 }
 
 /* Cabeçalho de introdução reutilizado por about, projects (e futuramente contact) */
 .section-intro {
   text-align: center;        /* Centraliza o texto dentro do bloco */
-  margin: 0 auto 80px;       /* Atalho com 3 valores: 0 em cima, auto nas laterais (centraliza a caixa) e 80px embaixo */
 }
 
 .section-intro h1 {
@@ -250,7 +251,7 @@ body {
 }
 
 .skill-tag {
-  background: #bea2a241;
+  background: #58494941;
   padding: 10px 16px;
   border-radius: 6px;
   font-size: 14px;
@@ -275,7 +276,7 @@ body {
     padding-right: 50px;
     padding-top: 100xp;
     padding-bottom: 50px;
-    height: 850px;
+    height: min-content;
 
 }
 
@@ -334,7 +335,7 @@ body {
     padding-right: 50px;
     padding-top: 100xp;
     padding-bottom: 50px;
-    height: 850px;
+    min-height: 850px;
 }
 
 .contact-container {
@@ -346,6 +347,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding-top: 200px;
+  padding-bottom: 300px;
 }
 
 .contact-container a {
@@ -354,12 +356,192 @@ body {
 }
 
 .contact-container a:hover {
-  transform: translateY(-10px);
+  transform: translateY(-30px);
 }
 
 .contact-container img {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   object-fit: contain;
 }
 
+/* =========================================================
+   TABLET / CELULAR DEITADO  (<= 768px)
+   Aqui as colunas viram 1 coluna só (empilhado) e as seções
+   deixam de ter altura fixa, porque altura fixa em tela
+   pequena corta conteúdo.
+   ========================================================= */
+@media (max-width: 768px) {
+
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding-top: 64px;
+    /* background-attachment: fixed não funciona no Safari iOS
+       e pode travar o scroll em alguns Androids — trocamos
+       para scroll só a partir daqui */
+    background-attachment: scroll;
+  }
+
+  /* ---------- NAVBAR ---------- */
+  .navbar__container {
+    padding: 0.75rem 1.25rem;
+  }
+
+  .navbar__links {
+    gap: 1rem;
+    font-size: 14px;
+  }
+
+  .navbar__brand {
+    column-gap: 12px;
+  }
+
+  /* ---------- HOME ---------- */
+  .home {
+    height: auto;           /* altura fixa vira automática */
+    padding: 40px 24px;
+  }
+
+  .home__container {
+    grid-template-columns: 1fr;   /* 1 coluna em vez de 2 */
+    padding: 0;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .home__portrait {
+    order: -1;               /* foto aparece antes do texto no mobile */
+  }
+
+  .home__portrait-frame {
+    width: 220px;
+    height: 220px;
+  }
+
+  .home__title {
+    font-size: 1.6rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    height: auto;
+    padding: 40px 24px;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    padding: 0;
+    gap: 40px;
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects {
+    height: auto;
+    padding: 40px 24px;
+  }
+
+  .projects__grid {
+    gap: 24px;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .project-card__image-wrapper {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 380 / 250;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    height: auto;
+    padding: 40px 24px;
+  }
+
+  .contact-container {
+    gap: 3rem;
+    padding-top: 60px;
+    padding-bottom: 80px;
+    flex-wrap: wrap;
+  }
+
+  .contact-container img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* =========================================================
+   CELULAR  (<= 480px)
+   Ajustes finos para telas bem estreitas.
+   ========================================================= */
+@media (max-width: 480px) {
+
+  html {
+    font-size: 15px;
+  }
+
+  .navbar__brand span {
+    display: none;
+  }
+
+  .navbar__links {
+    gap: 0.75rem;
+    font-size: 12px;
+  }
+
+  .home {
+    padding: 32px 16px;
+    height: auto
+  }
+
+  .home__title {
+    font-size: 1.3rem;
+  }
+
+  .home__portrait-frame {
+    width: 160px;
+    height: 160px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .about,
+  .projects,
+  .contact {
+    padding: 32px 16px;
+     height: auto;
+  }
+
+  .section-intro h1 {
+    font-size: 24px;
+    letter-spacing: 2px;
+  }
+
+  .skill-tag {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .contact-container {
+    gap: 2rem;
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+  .contact-container img {
+    width: 80px;
+    height: 80px;
+  }
+}
