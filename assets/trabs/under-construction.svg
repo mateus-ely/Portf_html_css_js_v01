@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Under construction">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2b1033"/>
+      <stop offset="1" stop-color="#14121c"/>
+    </linearGradient>
+    <pattern id="stripes" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="28" height="56" fill="#f5c518"/>
+      <rect x="28" width="28" height="56" fill="#1b1b1b"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#bg)"/>
+
+  <!-- faixas de obra no topo e na base -->
+  <rect y="0" width="800" height="34" fill="url(#stripes)"/>
+  <rect y="466" width="800" height="34" fill="url(#stripes)"/>
+
+  <!-- cone -->
+  <g transform="translate(400 300)">
+    <rect x="-95" y="80" width="190" height="22" rx="6" fill="#e8590c"/>
+    <path d="M-70 80 L-18 -120 L18 -120 L70 80 Z" fill="#fd7e14"/>
+    <path d="M-50 2 L-34 -60 L34 -60 L50 2 Z" fill="#f8f9fa"/>
+    <path d="M-28 -88 L-22 -110 L22 -110 L28 -88 Z" fill="#f8f9fa"/>
+  </g>
+
+  <text x="400" y="440" text-anchor="middle" fill="#f8f9fa"
+        font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="6">
+    UNDER CONSTRUCTION
+  </text>
+</svg>

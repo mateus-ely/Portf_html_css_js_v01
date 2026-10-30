@@ -264,64 +264,146 @@ body {
    PROJECTS
    Block: .projects
    Elements: __grid
-   Component: .project-card (__image-wrapper, __image, __description, __tech)
+   Component: .project-card (__image-wrapper, __image, __body, __title,
+              __description, __tech, __access)
    ========================================================= */
 
-
-
 .projects {
-    font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 100xp;
-    padding-bottom: 50px;
-    height: min-content;
-
+  font-family: gt, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+  Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
+/* Fileira de cards com rolagem horizontal: os cards que não cabem
+   ficam à direita e o usuário arrasta a barra para vê-los */
 .projects__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  width: 100%;
+  display: flex;             /* Cards lado a lado, numa linha só */
+  gap: 40px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 80px auto 0;
+  padding: 12px 4px 24px;    /* Espaço para o card subir no hover e para a barra não encostar nos cards (o overflow cortaria a sombra) */
+  overflow-x: auto;          /* Mostra a barra de rolagem horizontal só quando os cards passam da largura */
+  scroll-snap-type: x mandatory;  /* Ao soltar a barra, a rolagem "encaixa" no card mais próximo */
+  scrollbar-color: #a407b3a0 rgba(255, 255, 255, 0.25);  /* Firefox: cor do polegar e do trilho */
 }
 
-.project-card {
-  background-color: white;
-  width: 400px;
-  height: 500px;
-  padding:10px;
-  justify-content: space-between;
+/* Chrome, Edge e Safari: barra estilizada com o roxo da página */
+.projects__grid::-webkit-scrollbar {
+  height: 12px;
+}
 
+.projects__grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 6px;
+}
+
+.projects__grid::-webkit-scrollbar-thumb {
+  background: #a407b3a0;
+  border-radius: 6px;
+}
+
+.projects__grid::-webkit-scrollbar-thumb:hover {
+  background: #a407b3;
+}
+
+.projects__grid .project-card {
+  flex: 0 0 360px;           /* Largura fixa de 360px: não cresce nem encolhe, então os cards sobrando vão para a direita em vez de se espremerem */
+  scroll-snap-align: start;
+}
+
+/* Card de vidro: mesmo efeito da navbar (fundo translúcido + blur) */
+.project-card {
+  display: flex;
+  flex-direction: column;    /* Empilha imagem e corpo na vertical */
+  background: rgba(255, 255, 255, 0.25);  /* Branco 25% opaco: deixa o gradiente do fundo aparecer */
+  backdrop-filter: blur(10px);            /* Desfoca o que está ATRÁS do card, igual à navbar */
+  border: 3px solid transparent;          /* Mesmo truque da navbar: borda invisível que só ganha cor no hover */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;          /* Corta a imagem nos cantos arredondados do card */
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.project-card:hover {
+  border-color: black;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);  /* Sobe um pouco, como os links da navbar */
 }
 
 .project-card__image-wrapper {
-  width: 380px;
-  height: 250px;
+  aspect-ratio: 16 / 10;     /* Altura proporcional à largura: todas as imagens ficam do mesmo tamanho */
+  overflow: hidden;
 }
 
 .project-card__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;         /* Preenche sem distorcer */
+  display: block;            /* Remove o espacinho que imagens inline deixam embaixo */
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.05);    /* Zoom leve na imagem quando o card recebe hover */
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;                   /* Ocupa todo o espaço que sobra no card. É o que alinha os botões no rodapé mesmo com descrições de tamanhos diferentes. */
+  gap: 16px;
+  padding: 24px;
+}
+
+.project-card__title {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 20px;
 }
 
 .project-card__description {
-  width: 100%;
-  height: 80px;
+  line-height: 1.6;
+  flex: 1;                   /* Empurra tags e botões para baixo */
 }
 
-.project-card__tech{
-  width: 100%;
-  height: 130px;
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.project-card__access{
-  width: 100%;
-  height: 100px;
+.project-card__tech .skill-tag {
+  font-size: 12px;
+  padding: 6px 12px;
+}
 
+.project-card__access {
+  display: flex;
+  gap: 12px;
+}
+
+.project-card__access .btn {
+  margin-top: 0;
+  padding: 10px 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+/* Variação de botão sem fundo, só com borda — usada como ação secundária */
+.btn--ghost {
+  background: transparent;
+  border-color: #a407b341;
+}
+
+/* Botão inativo (projetos em reforma): apagado e sem reação ao mouse */
+.btn:disabled {
+  font-family: inherit;      /* <button> não herda a fonte da página por padrão */
+  opacity: 0.45;
+  cursor: not-allowed;       /* Mouse vira o símbolo de "proibido" */
+  border-color: #a407b341;   /* Anula a borda preta do .btn:hover */
 }
 
 /* =========================================================
@@ -445,19 +527,11 @@ body {
 
   .projects__grid {
     gap: 24px;
+    margin-top: 40px;
   }
 
-  .project-card {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    margin: 0 auto;
-  }
-
-  .project-card__image-wrapper {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 380 / 250;
+  .projects__grid .project-card {
+    flex-basis: 85%;         /* No celular cada card ocupa quase a tela, deixando um pedaço do próximo aparecer como dica de que dá para rolar */
   }
 
   /* ---------- CONTACT ---------- */
